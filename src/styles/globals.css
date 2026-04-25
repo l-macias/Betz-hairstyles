@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Fuentes automáticas: genera las clases font-display y font-body */
+  --font-display: var(--font-gilda), serif;
+  --font-body: var(--font-jost), sans-serif;
+
+  /* Paleta Parisina */
+  --color-blush: #f2e8e1;
+  --color-petal: #e8d5c8;
+  --color-rose: #c4967a;
+  --color-dusty: #a67b65;
+  --color-noir: #1c1917;
+  --color-charcoal: #3d3530;
+  --color-muted: #9c8880;
+  --color-white: #fdfaf8;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-blush);
+    color: var(--color-noir);
+    font-family: var(--font-body);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-rose);
+    color: var(--color-white);
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-petal);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-rose);
+  }
+}
+
+/* Animaciones base */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
