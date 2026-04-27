@@ -3,56 +3,47 @@ export const INSTAGRAM_HANDLE = '@betzhairstyles';
 export const INSTAGRAM_URL = 'https://instagram.com/betzhairstyles';
 
 // ─── Portfolio ────────────────────────────────────────────────────────────────
-// Reemplazá las imágenes con las fotos reales de Betz.
-// Tip: Asegurate de pasarlas por un compresor (como TinyPNG) antes de subirlas.
-// size: "tall" | "wide" | "square"
 export const PORTFOLIO_ITEMS = [
   {
     id: 1,
-    title: 'Recogido Bajo Texturizado',
+    title: 'Recogido Bajo Arquitectónico',
     category: 'Bodas',
-    image:
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2000',
+    image: '/portfolio/1-recogido-bajo-novia.webp',
     size: 'tall',
   },
   {
     id: 2,
-    title: 'Ondas al Agua Clásicas',
-    category: 'Eventos',
-    image:
-      'https://images.unsplash.com/photo-1594434032024-871d9f4d7be4?q=80&w=2000',
+    title: 'Semirecogido Romántico con Tocado',
+    category: 'Quinceañeras',
+    image: '/portfolio/2-semirecogido-tocado.webp',
     size: 'square',
   },
   {
     id: 3,
-    title: 'Semirecogido Boho Chic',
-    category: 'Quinceañeras',
-    image:
-      'https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2000',
+    title: 'Glam Waves & Face Framing',
+    category: 'Eventos',
+    image: '/portfolio/3-ondas-frente-glam.webp',
     size: 'square',
   },
   {
     id: 4,
-    title: 'Wet Look High Fashion',
-    category: 'Editorial',
-    image:
-      'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=2000',
+    title: 'Trenza Boho & Extra Largo',
+    category: 'Bodas',
+    image: '/portfolio/4-trenza-boho-largo.webp',
     size: 'tall',
   },
   {
     id: 5,
-    title: 'Cola de Caballo con Volumen',
-    category: 'Eventos',
-    image:
-      'https://images.unsplash.com/photo-1560066984-138daaa4ad53?q=80&w=2000',
+    title: 'Estructura Haute Couture con Perlas',
+    category: 'Editorial',
+    image: '/portfolio/5-rodete-alto-perlas.webp',
     size: 'square',
   },
   {
     id: 6,
-    title: 'Estructura Avant-Garde',
-    category: 'Editorial',
-    image:
-      'https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?q=80&w=2000',
+    title: 'Hollywood Waves',
+    category: 'Eventos',
+    image: '/portfolio/6-hollywood-waves-miss.webp',
     size: 'square',
   },
 ];
@@ -101,7 +92,6 @@ export const SERVICES = [
   },
 ];
 
-// ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS = [
   { value: '+500', label: 'Clientas felices' },
   { value: '8 años', label: 'De trayectoria profesional' },
@@ -109,7 +99,6 @@ export const STATS = [
   { value: '100%', label: 'Productos de primera línea' },
 ];
 
-// ─── Testimonios ─────────────────────────────────────────────────────────────
 export const TESTIMONIALS = [
   {
     id: 1,
@@ -137,27 +126,24 @@ export const TESTIMONIALS = [
   },
 ];
 
-// ─── Videos YouTube ───────────────────────────────────────────────────────────
-// Reemplazá los videoId con los IDs reales del canal de Betz.
-// El ID es lo que va después de ?v= en la URL de YouTube.
 export const YOUTUBE_VIDEOS = [
   {
     id: 1,
-    videoId: 'dQw4w9WgXcQ', // ← reemplazar
+    videoId: 'dQw4w9WgXcQ',
     title: 'VLOG: Preparando a una novia real',
     category: 'Detrás de escena',
     duration: '08:45',
   },
   {
     id: 2,
-    videoId: 'dQw4w9WgXcQ', // ← reemplazar
+    videoId: 'dQw4w9WgXcQ',
     title: 'Cómo lograr ondas perfectas (y que duren)',
     category: 'Tutorial',
     duration: '12:20',
   },
   {
     id: 3,
-    videoId: 'dQw4w9WgXcQ', // ← reemplazar
+    videoId: 'dQw4w9WgXcQ',
     title: 'Mis 5 productos infaltables en el maletín',
     category: 'Tips & Reseñas',
     duration: '06:15',

@@ -36,25 +36,28 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-blush">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blush">
       {/* Grain texture overlay — sutil */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-30 bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%220.4%22/%3E%3C/svg%3E')] bg-repeat"
         style={{ backgroundSize: "200px" }}
       />
 
-      {/* Círculo decorativo — fondo */}
-      <div className="absolute hidden lg:block w-[520px] h-[520px] rounded-full border border-rose/20 right-[calc(35%-260px)] top-1/2 -translate-y-1/2" />
+      {/* Círculo decorativo — anclado al centro para que no se escape en pantallas gigantes */}
+      <div className="absolute hidden lg:block w-[500px] h-[500px] rounded-full border border-rose/20 left-1/2 top-1/2 -translate-y-1/2 translate-x-[10%]" />
 
-      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center min-h-screen">
+      {/* CONTENEDOR PRINCIPAL: Agregamos max-w-7xl y mx-auto para contener el ancho */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-16 lg:py-0 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-screen">
+        
         {/* ─── Columna izquierda: texto ─── */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left mt-10 lg:mt-0">
+          
           {/* Línea decorativa + label */}
           <div
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center gap-4 mb-6"
             ref={lineRef as React.RefObject<HTMLDivElement>}
           >
-            <div className="w-10 h-px bg-rose" />
+            <div className="hidden lg:block w-10 h-px bg-rose" />
             <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose">
               Peinadora Profesional · Rosario
             </p>
@@ -63,7 +66,7 @@ export default function Hero() {
           {/* Heading principal */}
           <h1
             ref={h1Ref}
-            className="font-display text-noir leading-[1.05] mb-6 text-[clamp(3.2rem,7vw,6.5rem)]"
+            className="font-display text-noir leading-[1.05] mb-6 text-[clamp(2.8rem,7vw,6.5rem)]"
           >
             El peinado
             <br />
@@ -75,46 +78,45 @@ export default function Hero() {
           {/* Subheading */}
           <p
             ref={subRef}
-            className="font-body text-charcoal leading-relaxed mb-10 max-w-sm text-[clamp(0.9rem,1.5vw,1.05rem)] font-light"
+            className="font-body text-charcoal leading-relaxed mb-8 max-w-sm text-[clamp(0.9rem,1.5vw,1.05rem)] font-light mx-auto lg:mx-0"
           >
-            Bodas, quinceañeras, eventos sociales, editoriales y modelos. Cada
-            ocasión es única — tu peinado también.
+            Estilismo exclusivo a domicilio con técnicas de fijación extrema. Disfrutá tu evento con la tranquilidad de que tu peinado va a durar toda la noche.
           </p>
 
           {/* CTAs */}
-          <div ref={ctaRef} className="flex flex-wrap gap-4">
+          <div ref={ctaRef} className="flex flex-wrap justify-center lg:justify-start gap-4">
+            <a
+              href="https://wa.me/5493410000000?text=Hola%20Betz!%20Vengo%20de%20tu%20web%20y%20quería%20consultarte%20disponibilidad%20para%20una%20fecha."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body group inline-flex items-center gap-2.5 bg-rose text-white px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-dusty no-underline"
+            >
+              Consultar Fecha
+            </a>
+
             <a
               href="#portfolio"
-              className="font-body group inline-flex items-center gap-2.5 bg-rose text-white px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-dusty no-underline"
+              className="font-body inline-flex items-center gap-2.5 border border-rose/50 text-charcoal px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-all duration-300 hover:border-rose hover:text-rose no-underline"
             >
               Ver mi trabajo
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
             </a>
-
-            <a
-              href="https://instagram.com/betzhairstyles"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-body inline-flex items-center gap-2.5 border border-rose/50 text-charcoal px-7 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-all duration-300 hover:border-rose hover:text-rose no-underline"
-            >
-              Escribirme ↗
-            </a>
           </div>
 
           {/* Stats rápidos */}
-          <div className="flex gap-8 mt-14 pt-10 border-t border-rose/20">
+          <div className="flex gap-6 md:gap-8 mt-12 pt-8 border-t border-rose/20 justify-center lg:justify-start w-full lg:w-auto">
             {[
               { v: "+500", l: "peinados" },
               { v: "8 años", l: "experiencia" },
-              { v: "Rosario", l: "y alrededores" },
+              { v: "Rosario", l: "a domicilio" },
             ].map((s) => (
               <div key={s.l}>
-                <p className="font-display text-rose text-[1.6rem] leading-none">
+                <p className="font-display text-rose text-[1.4rem] md:text-[1.6rem] leading-none">
                   {s.v}
                 </p>
-                <p className="font-body text-muted mt-1 text-[10px] tracking-[0.15em] uppercase">
+                <p className="font-body text-muted mt-1 text-[9px] md:text-[10px] tracking-[0.15em] uppercase">
                   {s.l}
                 </p>
               </div>
@@ -125,36 +127,36 @@ export default function Hero() {
         {/* ─── Columna derecha: imagen ─── */}
         <div
           ref={imgRef}
-          className="relative flex justify-center lg:justify-end items-center"
+          className="relative flex justify-center lg:justify-end items-center w-full pb-10 lg:pb-0"
         >
-          {/* Marco fotográfico con offset */}
-          <div className="relative">
-            {/* Sombra/marco decorativo desplazado */}
-            <div className="absolute inset-0 border border-rose/35 translate-x-3.5 translate-y-3.5 rounded-sm" />
+          {/* Contenedor responsivo de la imagen */}
+          <div className="relative w-full max-w-[320px] md:max-w-[400px] lg:max-w-[460px]">
+            {/* Sombra/marco decorativo */}
+            <div className="absolute inset-0 border border-rose/35 translate-x-3 translate-y-3 rounded-sm" />
 
-            {/* Imagen principal */}
-            <div className="relative overflow-hidden w-[clamp(280px,35vw,480px)] h-[clamp(380px,55vh,640px)] rounded-sm">
+            {/* Imagen principal usando Aspect Ratio en vez de altos fijos */}
+            <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden bg-rose/5">
               <Image
-                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2000"
-                alt="Betz — Peinadora Profesional en Rosario"
+                src="/hero-gold.webp"
+                alt="Peinado de alta costura con ondas al agua en Rosario - Betz Hairstyles"
                 fill
-                className="object-cover object-top"
+                sizes="(max-width: 1024px) 90vw, 45vw"
+                className="object-cover object-[center_5%] lg:object-[center_20%]"
                 priority
               />
-              {/* Overlay suave */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-blush/15" />
             </div>
 
-            {/* Pill flotante — categoría */}
-            <div className="absolute -bottom-6 -left-5 bg-white px-4 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase text-rose shadow-[0_4px_20px_rgba(28,25,23,0.08)] rounded-sm">
+            {/* Pill flotante */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:-left-6 bg-white px-4 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase text-rose shadow-[0_4px_20px_rgba(28,25,23,0.08)] rounded-sm whitespace-nowrap">
               ✦ Disponible en Rosario
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 animate-[fadeIn_1s_ease_1.2s_both]">
+      {/* Scroll hint - Solo en desktop para limpiar la pantalla en celular */}
+      <div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-10 animate-[fadeIn_1s_ease_1.2s_both]">
         <div className="w-px h-10 bg-gradient-to-b from-transparent to-rose" />
       </div>
     </section>

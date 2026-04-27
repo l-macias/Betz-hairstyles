@@ -17,89 +17,96 @@ export default function PortfolioGrid() {
   return (
     <section
       id="portfolio"
-      className="bg-white"
+      className="bg-white w-full flex justify-center overflow-hidden"
       style={{ padding: "clamp(4rem,10vw,7rem) 0" }}
     >
-      {/* Header */}
-      <div className="px-6 md:px-12 lg:px-20 mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div>
-          <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose mb-3">
-            02 — Portfolio
-          </p>
-          <h2
-            className="font-display text-noir leading-tight"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)" }}
-          >
-            Cada peinado,
-            <br />
-            <span className="text-rose italic">una historia.</span>
-          </h2>
-        </div>
-        <a
-          href="https://instagram.com/betzhairstyles"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-body hidden md:inline-flex items-center gap-2 text-muted hover:text-rose transition-colors duration-300 text-[10px] tracking-[0.25em] uppercase no-underline"
-        >
-          Ver más en Instagram ↗
-        </a>
-      </div>
-
-      {/* Grid asimétrica */}
-      <div className="px-6 md:px-12 lg:px-20 grid grid-cols-2 md:grid-cols-12 gap-3">
-        {PORTFOLIO_ITEMS.map((item) => {
-          const colSpan =
-            item.size === "tall"   ? "md:col-span-4" :
-            item.size === "wide"   ? "md:col-span-8" :
-                                     "md:col-span-4";
-          const aspect =
-            item.size === "tall"   ? "aspect-[3/4]" :
-            item.size === "wide"   ? "aspect-[16/9]" :
-                                     "aspect-square";
-
-          return (
-            <div
-              key={item.id}
-              className={`group relative overflow-hidden cursor-pointer ${colSpan}`}
-              onClick={() => setSelectedImage(item.image)}
+      {/* Contenedor central (Fija monitores ultrawide) */}
+      <div className="w-full max-w-7xl px-6 md:px-12 mx-auto">
+        
+        {/* Header */}
+        <div className="mb-10 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose mb-3">
+              02 — Portfolio
+            </p>
+            <h2
+              className="font-display text-noir leading-tight"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 3.8rem)" }}
             >
-              <div className={`relative ${aspect} overflow-hidden`}>
-                <Image
-                  src={item.image}
-                  alt={`${item.title} — ${categoryLabel[item.category]} — Betz Hairstyles Rosario`}
-                  fill
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                />
-                {/* Hover overlay optimizado con Tailwind */}
-                <div className="absolute inset-0 flex items-end p-5 md:p-6 transition-all duration-500 bg-gradient-to-t from-transparent to-transparent group-hover:from-noir/60 group-hover:via-noir/20 group-hover:to-transparent">
-                  <div className="translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                    <span className="font-body block mb-1 text-[9px] tracking-[0.3em] uppercase text-petal">
-                      {item.category}
-                    </span>
-                    <p
-                      className="font-display text-white italic"
-                      style={{ fontSize: "clamp(1rem, 2vw, 1.4rem)" }}
-                    >
-                      {item.title}
-                    </p>
+              Arte, técnica y
+              <br />
+              <span className="text-rose italic">precisión.</span>
+            </h2>
+          </div>
+          <a
+            href="https://instagram.com/betzhairstyles"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body hidden md:inline-flex items-center gap-2 text-muted hover:text-rose transition-colors duration-300 text-[10px] tracking-[0.25em] uppercase no-underline"
+          >
+            Ver más en Instagram ↗
+          </a>
+        </div>
+
+        {/* Grid Responsive (1 col móvil, 2 cols tablet, 12 cols desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-5">
+          {PORTFOLIO_ITEMS.map((item) => {
+            // En desktop (md) usa el sistema de 12 columnas.
+            // En móvil/tablet usa las columnas definidas arriba (1 o 2).
+            const colSpan =
+              item.size === "tall"   ? "md:col-span-4" :
+              item.size === "wide"   ? "md:col-span-8" :
+                                       "md:col-span-4";
+            const aspect =
+              item.size === "tall"   ? "aspect-[3/4]" :
+              item.size === "wide"   ? "aspect-[16/9]" :
+                                       "aspect-square";
+
+            return (
+              <div
+                key={item.id}
+                className={`group relative overflow-hidden cursor-pointer w-full ${colSpan}`}
+                onClick={() => setSelectedImage(item.image)}
+              >
+                <div className={`relative w-full ${aspect} overflow-hidden bg-rose/5`}>
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} — ${categoryLabel[item.category]} — Betz Hairstyles Rosario`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 flex items-end p-5 md:p-6 transition-all duration-500 bg-gradient-to-t from-transparent to-transparent group-hover:from-noir/80 group-hover:via-noir/30 group-hover:to-transparent">
+                    <div className="translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400 w-full">
+                      <span className="font-body block mb-1 text-[9px] tracking-[0.3em] uppercase text-petal">
+                        {item.category}
+                      </span>
+                      <p
+                        className="font-display text-white italic drop-shadow-md"
+                        style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)" }}
+                      >
+                        {item.title}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
 
-      {/* Mobile link */}
-      <div className="mt-10 px-6 md:hidden text-center">
-        <a
-          href="https://instagram.com/betzhairstyles"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-body text-[10px] tracking-[0.3em] uppercase text-muted hover:text-rose transition-colors duration-300 no-underline"
-        >
-          Ver más en Instagram ↗
-        </a>
+        {/* Mobile link */}
+        <div className="mt-10 md:hidden text-center">
+          <a
+            href="https://instagram.com/betzhairstyles"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body inline-flex justify-center border border-rose/30 px-6 py-3 rounded-sm text-[10px] tracking-[0.3em] uppercase text-charcoal hover:border-rose hover:text-rose transition-colors duration-300 no-underline"
+          >
+            Ver más en Instagram ↗
+          </a>
+        </div>
       </div>
 
       {/* Modal / Lightbox */}
