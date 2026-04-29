@@ -2,45 +2,62 @@ import Image from 'next/image';
 
 export default function TheArtist() {
   return (
-    <section id="sobre-mi" className="bg-white py-[clamp(4rem,10vw,7rem)]">
-      <div className="px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          {/* Imagen Editorial (Izquierda) */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative w-full aspect-[4/5] overflow-hidden rounded-sm">
+    <section
+      id="sobre-mi"
+      className="bg-white w-full flex justify-center overflow-hidden"
+      style={{ padding: 'clamp(4rem,10vw,7rem) 0' }}
+    >
+      <div className="w-full max-w-7xl px-6 md:px-12 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center">
+          {/* ─── Composición de Imágenes (Izquierda) ─── */}
+          <div className="lg:col-span-5 relative mt-10 lg:mt-0">
+            {/* Foto Principal: Proceso y Calidez (Manos en acción) */}
+            <div className="relative w-[85%] aspect-[4/5] overflow-hidden rounded-sm shadow-sm">
               <Image
-                src="https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?q=80&w=1000" // TODO: Reemplazar con foto de Betz trabajando
-                alt="Betz trabajando en un peinado de novia en Rosario"
+                src="/portfolio/7-betz-artist-action.webp"
+                alt="Betz peinando con luz natural - Detrás de escena"
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-center transition-transform duration-1000 hover:scale-105"
+                sizes="(max-width: 768px) 85vw, 40vw"
               />
-              {/* Sello decorativo */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-petal rounded-full flex items-center justify-center p-4 animate-[spin_20s_linear_infinite] hidden md:flex">
-                <svg viewBox="0 0 100 100" width="100" height="100">
-                  <defs>
-                    <path
-                      id="circle"
-                      d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                    />
-                  </defs>
-                  <text
-                    fontSize="11"
-                    className="font-body uppercase tracking-widest fill-dusty"
-                  >
-                    <textPath href="#circle">
-                      Estilista Profesional · Rosario ·
-                    </textPath>
-                  </text>
-                </svg>
-              </div>
+            </div>
+
+            {/* Foto Secundaria: Autoridad (Miss Earth vestido rojo) */}
+            <div className="absolute -bottom-10 right-0 w-[55%] aspect-[3/4] overflow-hidden rounded-sm border-8 border-white shadow-2xl z-10">
+              <Image
+                src="/portfolio/8-betz-miss-earth.webp"
+                alt="Betz peinando a Miss Earth - Estilismo de alto nivel"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+
+            {/* Sello decorativo giratorio */}
+            <div className="absolute -top-10 -left-6 w-32 h-32 bg-blush rounded-full flex items-center justify-center p-4 animate-[spin_20s_linear_infinite] z-20 shadow-sm hidden md:flex">
+              <svg viewBox="0 0 100 100" width="100" height="100">
+                <defs>
+                  <path
+                    id="circle"
+                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                  />
+                </defs>
+                <text
+                  fontSize="11"
+                  className="font-body uppercase tracking-[0.25em] fill-rose"
+                >
+                  <textPath href="#circle">
+                    Premium Stylist · Rosario ·
+                  </textPath>
+                </text>
+              </svg>
             </div>
           </div>
 
-          {/* Texto Biográfico (Derecha) */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          {/* ─── Texto Biográfico (Derecha) ─── */}
+          <div className="lg:col-span-7 flex flex-col justify-center lg:pl-8">
             <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose mb-4">
-              08 — The Artist
+              03 — The Artist
             </p>
             <h2 className="font-display text-noir leading-[1.1] mb-8 text-[clamp(2.5rem,5vw,4.5rem)]">
               Mi filosofía es <br />
@@ -50,38 +67,38 @@ export default function TheArtist() {
             <div className="space-y-6 font-body text-charcoal font-light leading-[1.8] text-[clamp(0.95rem,1.5vw,1.1rem)]">
               <p>
                 Soy Betz, especialista en estilismo y alta costura en peinados.
-                Durante más de 8 años, he acompañado a novias, quinceañeras y
-                modelos en Rosario y toda la región de Santa Fe, asegurándome de
-                que su cabello no solo luzca impecable, sino que cuente su
-                propia historia.
+                Durante más de 8 años, he acompañado a cientos de clientas en
+                Rosario y toda la región, asegurándome de que su cabello no solo
+                luzca impecable ante las cámaras, sino que soporte intacto la
+                intensidad de su evento.
               </p>
               <p>
-                No creo en los peinados &quot;en serie&quot;. Mi enfoque combina
-                el estudio meticuloso de la estructura facial, el tipo de
-                cabello y la estética general del evento para crear un diseño
-                que soporte horas de movimiento sin perder su elegancia inicial.
+                Mi experiencia abarca desde el acompañamiento integral de novias
+                en su gran día, hasta la dirección de estilismo para
+                producciones de moda y certámenes internacionales de belleza.
+                Esta trayectoria me enseñó que no existen los peinados &quot;en
+                serie&quot;.
               </p>
               <p>
-                Desde la primera consulta por Instagram hasta el último retoque
-                antes de salir, mi compromiso es brindarte un servicio premium,
-                relajado y absolutamente personalizado.
+                Mi enfoque combina el estudio meticuloso de tu estructura
+                facial, la textura natural de tu cabello y la estética de tu
+                vestido. Desde nuestra primera charla hasta el último retoque
+                con el fijador, mi compromiso es brindarte un servicio premium,
+                un ambiente relajado y un resultado que te haga sentir la mejor
+                versión de vos misma.
               </p>
             </div>
 
-            <div className="mt-10 pt-10 border-t border-rose/15">
-              <Image
-                src="/firma-betz.svg" // TODO: Opcional, agregar un SVG con una firma estilo cursiva
-                alt="Firma de Betz"
-                width={120}
-                height={40}
-                className="opacity-60"
-              />
-              <p className="font-display text-2xl italic text-noir mt-2">
-                Betz
-              </p>
-              <p className="font-body text-[10px] uppercase tracking-widest text-muted mt-1">
-                Founder & Lead Stylist
-              </p>
+            {/* Firma y Cargo */}
+            <div className="mt-12 pt-10 border-t border-rose/15 flex items-center gap-6">
+              <div>
+                <p className="font-display text-3xl italic text-noir leading-none">
+                  Betz
+                </p>
+                <p className="font-body text-[9px] uppercase tracking-widest text-muted mt-2">
+                  Founder & Lead Stylist
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ export const PORTFOLIO_ITEMS = [
     title: 'Hollywood Waves',
     category: 'Eventos',
     image: '/portfolio/6-hollywood-waves-miss.webp',
-    size: 'square',
+    size: 'tall',
   },
 ];
 

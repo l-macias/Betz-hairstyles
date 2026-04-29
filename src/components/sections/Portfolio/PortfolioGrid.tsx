@@ -1,37 +1,70 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState } from "react";
-import { PORTFOLIO_ITEMS } from "@/lib/constants";
+import Image from 'next/image';
+import { useState } from 'react';
+import { PORTFOLIO_ITEMS } from '@/lib/constants';
 
 const categoryLabel: Record<string, string> = {
-  Bodas: "Bodas",
-  Quinceañeras: "Quinceañeras",
-  Eventos: "Eventos",
-  Editorial: "Editorial",
+  Bodas: 'Bodas',
+  Quinceañeras: 'Quinceañeras',
+  Eventos: 'Eventos',
+  Editorial: 'Editorial',
 };
 
 export default function PortfolioGrid() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  // Mini-componente interno para no repetir el código del hover 6 veces
+  const PortfolioCard = ({ item }: { item: any }) => {
+    const aspect = item.size === 'tall' ? 'aspect-[3/4]' : 'aspect-square';
+
+    return (
+      <div
+        className={`group relative overflow-hidden cursor-pointer w-full ${aspect} bg-blush shadow-sm`}
+        onClick={() => setSelectedImage(item.image)}
+      >
+        <Image
+          src={item.image}
+          alt={`${item.title} — ${categoryLabel[item.category] || item.category}`}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
+        />
+        {/* Overlay premium */}
+        <div className="absolute inset-0 flex items-end p-5 md:p-6 transition-all duration-500 bg-gradient-to-t from-noir/80 via-noir/20 to-transparent opacity-0 group-hover:opacity-100">
+          <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 w-full">
+            <span className="font-body block mb-1 text-[9px] tracking-[0.3em] uppercase text-petal drop-shadow-md">
+              {item.category}
+            </span>
+            <p
+              className="font-display text-white italic drop-shadow-lg leading-tight"
+              style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}
+            >
+              {item.title}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section
       id="portfolio"
       className="bg-white w-full flex justify-center overflow-hidden"
-      style={{ padding: "clamp(4rem,10vw,7rem) 0" }}
+      style={{ padding: 'clamp(4rem,10vw,7rem) 0' }}
     >
-      {/* Contenedor central (Fija monitores ultrawide) */}
-      <div className="w-full max-w-7xl px-6 md:px-12 mx-auto">
-        
+      <div className="w-full max-w-5xl px-6 md:px-12 mx-auto">
+        {' '}
         {/* Header */}
-        <div className="mb-10 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose mb-3">
               02 — Portfolio
             </p>
             <h2
               className="font-display text-noir leading-tight"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 3.8rem)" }}
+              style={{ fontSize: 'clamp(2.5rem, 5vw, 3.8rem)' }}
             >
               Arte, técnica y
               <br />
@@ -47,62 +80,46 @@ export default function PortfolioGrid() {
             Ver más en Instagram ↗
           </a>
         </div>
-
-        {/* Grid Responsive (1 col móvil, 2 cols tablet, 12 cols desktop) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3 md:gap-5">
-          {PORTFOLIO_ITEMS.map((item) => {
-            // En desktop (md) usa el sistema de 12 columnas.
-            // En móvil/tablet usa las columnas definidas arriba (1 o 2).
-            const colSpan =
-              item.size === "tall"   ? "md:col-span-4" :
-              item.size === "wide"   ? "md:col-span-8" :
-                                       "md:col-span-4";
-            const aspect =
-              item.size === "tall"   ? "aspect-[3/4]" :
-              item.size === "wide"   ? "aspect-[16/9]" :
-                                       "aspect-square";
-
-            return (
-              <div
-                key={item.id}
-                className={`group relative overflow-hidden cursor-pointer w-full ${colSpan}`}
-                onClick={() => setSelectedImage(item.image)}
-              >
-                <div className={`relative w-full ${aspect} overflow-hidden bg-rose/5`}>
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} — ${categoryLabel[item.category]} — Betz Hairstyles Rosario`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 flex items-end p-5 md:p-6 transition-all duration-500 bg-gradient-to-t from-transparent to-transparent group-hover:from-noir/80 group-hover:via-noir/30 group-hover:to-transparent">
-                    <div className="translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400 w-full">
-                      <span className="font-body block mb-1 text-[9px] tracking-[0.3em] uppercase text-petal">
-                        {item.category}
-                      </span>
-                      <p
-                        className="font-display text-white italic drop-shadow-md"
-                        style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)" }}
-                      >
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        {/* ─── Layout Masonry / Asimétrico ─── */}
+        {/* Vista Mobile (1 Columna, todo apilado) */}
+        <div className="flex flex-col gap-4 md:hidden">
+          {PORTFOLIO_ITEMS.map((item) => (
+            <PortfolioCard key={item.id} item={item} />
+          ))}
         </div>
+        {/* Vista Desktop (3 Columnas Flexibles) */}
+        <div className="hidden md:grid grid-cols-3 gap-5 items-start">
+          {/* Columna 1: Larga arriba + Cuadrada abajo */}
+          <div className="flex flex-col gap-5">
+            <PortfolioCard item={PORTFOLIO_ITEMS[0]} />{' '}
+            {/* Recogido Bajo (Tall) */}
+            <PortfolioCard item={PORTFOLIO_ITEMS[4]} />{' '}
+            {/* Rodete Perlas (Square) */}
+          </div>
 
-        {/* Mobile link */}
+          {/* Columna 2: Cuadrada arriba + Larga abajo */}
+          <div className="flex flex-col gap-5">
+            <PortfolioCard item={PORTFOLIO_ITEMS[1]} />{' '}
+            {/* Semirecogido (Square) */}
+            <PortfolioCard item={PORTFOLIO_ITEMS[3]} />{' '}
+            {/* Trenza Boho (Tall) */}
+          </div>
+
+          {/* Columna 3: Larga arriba + Cuadrada abajo (Cierra el rectángulo) */}
+          <div className="flex flex-col gap-5">
+            <PortfolioCard item={PORTFOLIO_ITEMS[5]} />{' '}
+            {/* Miss Earth (Tall) */}
+            <PortfolioCard item={PORTFOLIO_ITEMS[2]} />{' '}
+            {/* Glam Waves (Square) */}
+          </div>
+        </div>
+        {/* Botón Mobile */}
         <div className="mt-10 md:hidden text-center">
           <a
             href="https://instagram.com/betzhairstyles"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body inline-flex justify-center border border-rose/30 px-6 py-3 rounded-sm text-[10px] tracking-[0.3em] uppercase text-charcoal hover:border-rose hover:text-rose transition-colors duration-300 no-underline"
+            className="font-body inline-flex justify-center border border-rose/30 px-6 py-3 rounded-sm text-[10px] tracking-[0.3em] uppercase text-charcoal hover:border-rose hover:text-rose transition-colors duration-300 no-underline w-full"
           >
             Ver más en Instagram ↗
           </a>
