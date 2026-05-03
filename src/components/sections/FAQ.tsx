@@ -7,12 +7,12 @@ const FAQS = [
   {
     question: '¿Realizás servicio a domicilio para novias y quinceañeras?',
     answer:
-      'Sí. Ofrezco servicio a domicilio en toda la ciudad de Rosario, Funes, Roldán y alrededores para garantizar tu mayor comodidad el día del evento. Consultá por viáticos según tu zona.',
+      'Sí. Ofrezco servicio a domicilio en toda la ciudad de Rosario, Funes, Roldán y alrededores para garantizar tu mayor comodidad el día del evento.',
   },
   {
     question: '¿Con cuánto tiempo de anticipación debo reservar la fecha?',
     answer:
-      'Para casamientos y fiestas de 15, recomiendo reservar con al menos 3 a 6 meses de anticipación, ya que las fechas de temporada alta (primavera/verano) se agotan rápidamente.',
+      'Siempre podés consultar disponibilidad, incluso para fechas cercanas. Algunas fechas se completan rápido, pero pueden surgir espacios. Si tu evento es pronto, escribime y te confirmo opciones.',
   },
   {
     question: '¿Hacés pruebas de peinado previas al evento?',
@@ -20,9 +20,9 @@ const FAQS = [
       'Absolutamente. La prueba de peinado es fundamental para las novias. Nos reunimos semanas antes para probar diferentes opciones, evaluar texturas y definir el estilo perfecto sin apuros.',
   },
   {
-    question: '¿Trabajás sola o tenés equipo para peinar a invitadas?',
+    question: '¿Realizás peinados para varias personas en un mismo evento?',
     answer:
-      'Principalmente me dedico de forma exclusiva a la novia/quinceañera para asegurar un estándar premium. Si necesitás peinar a familiares o invitadas, lo coordinamos previamente según disponibilidad y tiempos.',
+      'Sí, puedo trabajar con varias personas el mismo día. La prioridad siempre es la novia o protagonista, y los peinados para familiares o invitadas se organizan con anticipación para garantizar tiempos y calidad.',
   },
 ];
 

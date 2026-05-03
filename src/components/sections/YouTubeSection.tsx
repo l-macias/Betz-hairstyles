@@ -45,7 +45,7 @@ export default function YouTubeSection() {
               {playing ? (
                 <iframe
                   className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
+                  src={`https://www.youtube.com/embed/EpXfW4pcLCY`}
                   title="Video de Betz Hairstyles"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

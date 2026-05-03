@@ -62,7 +62,7 @@ export default function AcademyWaitlist() {
               construir tu propio negocio.
             </p>
             <p className="font-display text-[1.2rem] italic text-white/70">
-              Todo lo que aprendí en 8 años — en tu pantalla.
+              Todo lo que aprendí en estos años — en tu pantalla.
             </p>
           </div>
 

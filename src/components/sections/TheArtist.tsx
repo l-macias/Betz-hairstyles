@@ -57,7 +57,7 @@ export default function TheArtist() {
           {/* ─── Texto Biográfico (Derecha) ─── */}
           <div className="lg:col-span-7 flex flex-col justify-center lg:pl-8">
             <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose mb-4">
-              03 — The Artist
+              03 — Sobre mi
             </p>
             <h2 className="font-display text-noir leading-[1.1] mb-8 text-[clamp(2.5rem,5vw,4.5rem)]">
               Mi filosofía es <br />
@@ -66,18 +66,17 @@ export default function TheArtist() {
 
             <div className="space-y-6 font-body text-charcoal font-light leading-[1.8] text-[clamp(0.95rem,1.5vw,1.1rem)]">
               <p>
-                Soy Betz, especialista en estilismo y alta costura en peinados.
-                Durante más de 8 años, he acompañado a cientos de clientas en
-                Rosario y toda la región, asegurándome de que su cabello no solo
-                luzca impecable ante las cámaras, sino que soporte intacto la
-                intensidad de su evento.
+                Soy Betz, peinadora profesional de la ciudad de Rosario,
+                Argentina. He acompañado a cientos de clientas, asegurándome de
+                que su cabello no solo luzca impecable ante las cámaras, sino
+                que se mantenga intacto durante la intensidad de su evento.
               </p>
               <p>
                 Mi experiencia abarca desde el acompañamiento integral de novias
                 en su gran día, hasta la dirección de estilismo para
                 producciones de moda y certámenes internacionales de belleza.
-                Esta trayectoria me enseñó que no existen los peinados &quot;en
-                serie&quot;.
+                Esta trayectoria me enseñó que cada peinado es único y merece un
+                trato exclusivo.
               </p>
               <p>
                 Mi enfoque combina el estudio meticuloso de tu estructura
@@ -96,7 +95,7 @@ export default function TheArtist() {
                   Betz
                 </p>
                 <p className="font-body text-[9px] uppercase tracking-widest text-muted mt-2">
-                  Founder & Lead Stylist
+                  Betania Castañeira
                 </p>
               </div>
             </div>

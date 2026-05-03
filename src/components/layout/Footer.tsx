@@ -9,7 +9,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="font-body text-[9px] tracking-[0.3em] uppercase text-white/25 text-center md:text-left">
-          © 2026 Betz Hairstyles — Rosario, Argentina
+          © 2026 Betz Peinados — Rosario, Argentina
         </p>
 
         {/* Social Link */}
