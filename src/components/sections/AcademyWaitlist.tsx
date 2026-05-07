@@ -22,9 +22,12 @@ export default function AcademyWaitlist() {
 
     try {
       // Conexión directa a tu tabla de Supabase
-      const { error: supaError } = await supabase
-        .from('waitlist')
-        .insert([{ instagram: cleanHandle }]);
+      const { error: supaError } = await supabase.from('WaitlistLead').insert([
+        {
+          instagram: cleanHandle,
+          updatedAt: new Date().toISOString(), // Le enviamos la fecha actual obligatoria
+        },
+      ]);
 
       if (supaError) {
         console.error('Error guardando waitlist:', supaError);

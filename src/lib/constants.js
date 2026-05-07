@@ -7,7 +7,7 @@ export const PORTFOLIO_ITEMS = [
   {
     id: 1,
     title: 'Recogido alto Clean Look',
-    category: 'Evento',
+    category: 'Eventos',
     image: '/portfolio/1-recogido-bajo-novia.webp',
     size: 'tall',
   },
@@ -34,7 +34,7 @@ export const PORTFOLIO_ITEMS = [
   },
   {
     id: 5,
-    title: 'Estructura Haute Couture con Perlas',
+    title: 'Peinado con Ondas Rotas',
     category: 'Eventos',
     image: '/portfolio/5-rodete-alto-perlas.webp',
     size: 'square',

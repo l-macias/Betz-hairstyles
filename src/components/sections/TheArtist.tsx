@@ -32,26 +32,6 @@ export default function TheArtist() {
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
-
-            {/* Sello decorativo giratorio */}
-            <div className="absolute -top-10 -left-6 w-32 h-32 bg-blush rounded-full flex items-center justify-center p-4 animate-[spin_20s_linear_infinite] z-20 shadow-sm hidden md:flex">
-              <svg viewBox="0 0 100 100" width="100" height="100">
-                <defs>
-                  <path
-                    id="circle"
-                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                  />
-                </defs>
-                <text
-                  fontSize="11"
-                  className="font-body uppercase tracking-[0.25em] fill-rose"
-                >
-                  <textPath href="#circle">
-                    Premium Stylist · Rosario ·
-                  </textPath>
-                </text>
-              </svg>
-            </div>
           </div>
 
           {/* ─── Texto Biográfico (Derecha) ─── */}

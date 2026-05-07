@@ -142,7 +142,7 @@ export default function Hero() {
             <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden bg-rose/5">
               <Image
                 src="/hero-gold.webp"
-                alt="Peinado de alta costura con ondas al agua en Rosario - Betz Hairstyles"
+                alt="Peinado de alta costura con ondas al agua en Rosario - Betz Peinados"
                 fill
                 sizes="(max-width: 1024px) 90vw, 45vw"
                 className="object-cover object-[center_5%] lg:object-[center_20%]"

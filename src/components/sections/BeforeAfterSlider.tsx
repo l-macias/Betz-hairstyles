@@ -43,8 +43,8 @@ export default function BeforeAfterSlider() {
               {/* Imagen Base (Antes) - Queda de fondo */}
               <div className="absolute inset-0 bg-blush">
                 <Image
-                  src="/portfolio/9-antes.webp"
-                  alt="Cabello al natural antes del peinado"
+                  src="/portfolio/10-despues.webp"
+                  alt="Peinado profesional terminado por Betz"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -58,8 +58,8 @@ export default function BeforeAfterSlider() {
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
               >
                 <Image
-                  src="/portfolio/10-despues.webp"
-                  alt="Peinado profesional terminado por Betz"
+                  src="/portfolio/9-antes.webp"
+                  alt="Cabello al natural antes del peinado"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
