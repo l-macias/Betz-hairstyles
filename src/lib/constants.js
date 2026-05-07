@@ -99,30 +99,35 @@ export const STATS = [
   { value: '100%', label: 'Productos de primera línea' },
 ];
 
+// lib/constants.ts
+
 export const TESTIMONIALS = [
   {
     id: 1,
+    name: 'Agustina',
+    event: 'Novia de Día',
     quote:
-      'Betz es una artista con todas las letras. El peinado me duró intacto hasta las 6 de la mañana, saltando y bailando. Además, la paz que transmite mientras te prepara no tiene precio.',
-    name: 'Valentina M.',
-    event: 'Novia · 2024',
-    initials: 'VM',
+      'Betz, no tengo palabras para agradecerte. El peinado duró impecable todo el día, incluso con el viento de la ceremonia al aire libre. Me sentí yo misma, pero elevada al 100%. Sos una artista.',
+    image: '/images/testimonials/novia-eli.webp', // <-- Ruta a la foto de Agustina
+    peinado: 'Ondas rotas con semirecogido boho.', // Detalle extra premium
   },
   {
     id: 2,
+    name: 'Carla',
+    event: 'Madrina',
     quote:
-      'Súper cálida y profesional. En la prueba entendió al instante lo que buscábamos. Mi hija brilló en sus 15 y el pelo le quedó tal cual la foto de Pinterest que le mostramos.',
-    name: 'Claudia R.',
-    event: 'Mamá de Quinceañera',
-    initials: 'CR',
+      'Excelente profesional. Entendió perfectamente lo que quería y lo adaptó a mi tipo de pelo. El recogido no se movió en toda la noche y recibí muchísimos cumplidos. La tranquilidad que te da Betz en la previa no tiene precio.',
+    image: '/images/testimonials/madrina-carla.webp', // <-- Ruta a la foto de Carla
+    peinado: 'Recogido bajo texturizado elegante.',
   },
   {
     id: 3,
+    name: 'Lucía',
+    event: 'Quinceañera',
     quote:
-      'La elegimos para la campaña de la nueva temporada y el resultado en cámara fue espectacular. Súper rápida para los cambios de look en el set. Un placer trabajar así.',
-    name: 'Lara F.',
-    event: 'Productora de Moda',
-    initials: 'LF',
+      '¡Amé mi peinado! Duró toda la fiesta, bailé un montón y quedó re lindo en las fotos. Betz es súper dulce y me re ayudó a elegir. ¡Gracias!',
+    image: '/images/testimonials/quince-lucia.webp', // <-- Ruta a la foto de Lucía
+    peinado: 'Coleta alta con volumen y ondas definidas.',
   },
 ];
 
