@@ -83,7 +83,7 @@ export default function Contact() {
 
           <div className="flex flex-col sm:flex-row gap-5 mb-12 lg:mb-0">
             <a
-              href="https://wa.me/5493410000000?text=Hola%20Betz!%20Vengo%20de%20tu%20web%20y%20me%20encantaría%20consultarte%20disponibilidad."
+              href="https://wa.me/5493413276428?text=Hola%20Betz!%20Vengo%20de%20tu%20web%20y%20me%20encantaría%20consultarte%20disponibilidad."
               target="_blank"
               rel="noopener noreferrer"
               className="font-body inline-flex justify-center items-center gap-3 bg-rose text-white px-8 py-4 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-dusty no-underline w-full sm:w-auto"
