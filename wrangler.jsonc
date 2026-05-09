@@ -3,9 +3,16 @@
   "main": ".open-next/worker.js",
   "name": "betz-hairstyles",
   "compatibility_date": "2026-05-08",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "624d472e8d174c189768c06633761bfe",
+      "localConnectionString": "postgresql://postgres:TU_PASSWORD@db.iomzfurjhsfqxwvgvrtt.supabase.co:5432/postgres",
+    },
+  ],
 }

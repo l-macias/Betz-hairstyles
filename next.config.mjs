@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Asegúrate de que no haya nada raro aquí que bloquee el CSS
+  serverExternalPackages: [
+    '@prisma/client',
+    '.prisma/client',
+    '@prisma/adapter-pg',
+    'pg',
+    'pg-cloudflare',
+  ],
+  turbopack: {
+    disabled: true,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

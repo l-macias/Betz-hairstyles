@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma'; // Importamos la conexión optimizada
+import { getDb } from '@/lib/db';
 import { z } from 'zod';
 
 const waitlistSchema = z.object({
@@ -11,6 +11,8 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { instagram } = waitlistSchema.parse(body);
     const cleanInstagram = instagram.replace('@', '').trim().toLowerCase();
+
+    const prisma = getDb();
 
     const lead = await prisma.waitlistLead.upsert({
       where: { instagram: cleanInstagram },
