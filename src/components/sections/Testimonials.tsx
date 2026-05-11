@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 
 // Reemplazá estas rutas con los nombres de tus archivos reales

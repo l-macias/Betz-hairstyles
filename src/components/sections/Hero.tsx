@@ -5,20 +5,17 @@ import { useEffect, useRef } from 'react';
 
 export default function Hero() {
   const lineRef = useRef<HTMLDivElement>(null);
-  const tag1Ref = useRef<HTMLParagraphElement>(null);
-  const h1Ref = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Solo animamos elementos secundarios, NO el H1 ni la Imagen principal (LCP)
     const items: [React.RefObject<HTMLElement | null>, number][] = [
       [lineRef, 100],
-      [tag1Ref, 250],
-      [h1Ref, 380],
-      [subRef, 540],
-      [ctaRef, 660],
-      [imgRef, 200],
+      [subRef, 300],
+      [ctaRef, 450],
+      [statsRef, 600],
     ];
     const timers = items.map(([ref, delay]) => {
       const el = ref.current;
@@ -37,23 +34,20 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-blush pt-[80px]">
-      {/* Grain texture overlay — sutil */}
+      {/* Grain texture */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-30 bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%220.4%22/%3E%3C/svg%3E')] bg-repeat"
         style={{ backgroundSize: '200px' }}
       />
 
-      {/* Círculo decorativo — anclado al centro para que no se escape en pantallas gigantes */}
       <div className="absolute hidden lg:block w-[500px] h-[500px] rounded-full border border-rose/20 left-1/2 top-1/2 -translate-y-1/2 translate-x-[10%]" />
 
-      {/* CONTENEDOR PRINCIPAL */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-10 lg:py-0 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        {/* ─── Columna izquierda: texto ─── */}
+        {/* ─── Columna izquierda ─── */}
         <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left mt-4 lg:mt-0">
-          {/* Línea decorativa + label */}
           <div
-            className="flex items-center gap-4 mb-6"
             ref={lineRef as React.RefObject<HTMLDivElement>}
+            className="flex items-center gap-4 mb-6"
           >
             <div className="hidden lg:block w-10 h-px bg-rose" />
             <p className="font-body text-[10px] tracking-[0.35em] uppercase text-rose">
@@ -61,11 +55,8 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Heading principal */}
-          <h1
-            ref={h1Ref}
-            className="font-display text-noir leading-[1.05] mb-6 text-[clamp(2.8rem,7vw,6.5rem)]"
-          >
+          {/* H1 ESTATICO: Sin ref, sin JS. Aparece de golpe. */}
+          <h1 className="font-display text-noir leading-[1.05] mb-6 text-[clamp(2.8rem,7vw,6.5rem)]">
             El peinado
             <br />
             que soñaste
@@ -73,7 +64,6 @@ export default function Hero() {
             <span className="text-rose italic">para ese día.</span>
           </h1>
 
-          {/* Subheading */}
           <p
             ref={subRef}
             className="font-body text-charcoal leading-relaxed mb-8 max-w-sm text-[clamp(0.9rem,1.5vw,1.05rem)] font-light mx-auto lg:mx-0"
@@ -82,7 +72,6 @@ export default function Hero() {
             evento con la tranquilidad de que tu look va a durar toda la noche.
           </p>
 
-          {/* CTAs */}
           <div
             ref={ctaRef}
             className="flex flex-wrap justify-center lg:justify-start gap-4"
@@ -109,8 +98,10 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Stats rápidos */}
-          <div className="flex gap-6 md:gap-8 mt-12 pt-8 border-t border-rose/20 justify-center lg:justify-start w-full lg:w-auto">
+          <div
+            ref={statsRef}
+            className="flex gap-6 md:gap-8 mt-12 pt-8 border-t border-rose/20 justify-center lg:justify-start w-full lg:w-auto"
+          >
             {[
               { v: 'Peinados', l: 'personalizados' },
               { v: 'Calidad', l: 'experiencia' },
@@ -128,17 +119,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ─── Columna derecha: imagen ─── */}
-        <div
-          ref={imgRef}
-          className="relative flex justify-center lg:justify-end items-center w-full pb-10 lg:pb-0"
-        >
-          {/* Contenedor responsivo de la imagen (Ajustado para notebooks) */}
+        {/* ─── Columna derecha ─── */}
+        <div className="relative flex justify-center lg:justify-end items-center w-full pb-10 lg:pb-0">
           <div className="relative w-full max-w-[320px] md:max-w-[380px] lg:max-w-[400px] xl:max-w-[460px]">
-            {/* Sombra/marco decorativo */}
             <div className="absolute inset-0 border border-rose/35 translate-x-3 translate-y-3 rounded-sm" />
 
-            {/* Imagen principal usando Aspect Ratio en vez de altos fijos */}
+            {/* IMAGEN ESTATICA: Sin ref, sin JS. Aparece de golpe. */}
             <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden bg-rose/5">
               <Image
                 src="/hero-gold.webp"
@@ -151,17 +137,11 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-blush/15" />
             </div>
 
-            {/* Pill flotante */}
             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:-left-6 bg-white px-4 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase text-rose shadow-[0_4px_20px_rgba(28,25,23,0.08)] rounded-sm whitespace-nowrap">
               ✦ Disponible en Rosario
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll hint - Solo en desktop para limpiar la pantalla en celular */}
-      <div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-10 animate-[fadeIn_1s_ease_1.2s_both]">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent to-rose" />
       </div>
     </section>
   );

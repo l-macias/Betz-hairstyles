@@ -48,11 +48,9 @@ export default function BeforeAfterSlider() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  priority // Carga rápida porque es clave en la UX
                 />
               </div>
 
-              {/* Imagen Superpuesta (Después) con Clip Path dinámico */}
               <div
                 className="absolute inset-0 bg-white"
                 style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
@@ -63,7 +61,6 @@ export default function BeforeAfterSlider() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
                 />
               </div>
 
