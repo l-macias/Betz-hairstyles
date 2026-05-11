@@ -57,6 +57,9 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+  verification: {
+    google: 'AwIN68lnkUbmdcJWHcg4Glt2eUCT5epXPkuS--Ybjow',
+  },
 };
 
 // ARREGLO 2: Cambié los "tudominio.com" por los enlaces reales.
