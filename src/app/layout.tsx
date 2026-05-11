@@ -4,16 +4,19 @@ import Script from 'next/script';
 import '../styles/globals.css';
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider';
 
+// ARREGLO 1: Agregamos display: 'swap' para que el texto cargue al instante sin bloquear la pantalla
 const gilda = Gilda_Display({
   subsets: ['latin'],
   variable: '--font-gilda',
   weight: '400',
+  display: 'swap',
 });
 
 const jost = Jost({
   subsets: ['latin'],
   variable: '--font-jost',
   weight: ['300', '400', '500'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -56,14 +59,15 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema Markup para SEO Local (Rosario)
+// ARREGLO 2: Cambié los "tudominio.com" por los enlaces reales.
+// Es crítico para que Google Maps y Google Search entiendan que es un negocio real.
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'HairSalon',
   name: 'Betz Peinados',
-  image: 'https://www.tudominio.com/imagen-principal.jpg', // TODO: Reemplazar con URL real
-  '@id': 'https://www.tudominio.com', // TODO: Reemplazar con dominio real
-  url: 'https://www.tudominio.com', // TODO: Reemplazar con dominio real
+  image: 'https://betzpeinados.com.ar/hero-gold.webp',
+  '@id': 'https://betzpeinados.com.ar',
+  url: 'https://betzpeinados.com.ar',
   priceRange: '$$$',
   address: {
     '@type': 'PostalAddress',
