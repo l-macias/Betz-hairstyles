@@ -15,7 +15,13 @@ export default function PortfolioGrid() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Mini-componente interno para no repetir el código del hover 6 veces
-  const PortfolioCard = ({ item }: { item: any }) => {
+  const PortfolioCard = ({
+    item,
+    priority = false,
+  }: {
+    item: any;
+    priority?: boolean;
+  }) => {
     const aspect = item.size === 'tall' ? 'aspect-[3/4]' : 'aspect-square';
 
     return (
@@ -27,7 +33,13 @@ export default function PortfolioGrid() {
           src={item.image}
           alt={`${item.title} — ${categoryLabel[item.category] || item.category}`}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          priority={priority}
+          quality={70}
+          sizes="
+    (max-width: 768px) 100vw,
+    (max-width: 1280px) 50vw,
+    25vw
+  "
           className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
         />
         {/* Overlay premium */}
@@ -91,7 +103,7 @@ export default function PortfolioGrid() {
         <div className="hidden md:grid grid-cols-3 gap-5 items-start">
           {/* Columna 1: Larga arriba + Cuadrada abajo */}
           <div className="flex flex-col gap-5">
-            <PortfolioCard item={PORTFOLIO_ITEMS[0]} />{' '}
+            <PortfolioCard item={PORTFOLIO_ITEMS[0]} priority />{' '}
             {/* Recogido Bajo (Tall) */}
             <PortfolioCard item={PORTFOLIO_ITEMS[4]} />{' '}
             {/* Rodete Perlas (Square) */}

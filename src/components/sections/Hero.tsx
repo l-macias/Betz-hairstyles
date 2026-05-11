@@ -82,7 +82,7 @@ export default function Hero() {
                 if (contactSection)
                   contactSection.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="font-body group inline-flex items-center gap-2.5 bg-rose text-white px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-dusty cursor-pointer border-none"
+              className="font-body group inline-flex items-center gap-2.5 bg-rose text-charcoal px-6 py-3.5 text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 hover:bg-dusty cursor-pointer border-none"
             >
               Consultar Disponibilidad
             </button>
@@ -137,7 +137,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-blush/15" />
             </div>
 
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:-left-6 bg-white px-4 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase text-rose shadow-[0_4px_20px_rgba(28,25,23,0.08)] rounded-sm whitespace-nowrap">
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:-left-6 bg-white px-4 py-2.5 font-body text-[10px] tracking-[0.2em] uppercase text-charcoal shadow-[0_4px_20px_rgba(28,25,23,0.08)] rounded-sm whitespace-nowrap">
               ✦ Disponible en Rosario
             </div>
           </div>
