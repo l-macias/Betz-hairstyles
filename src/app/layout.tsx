@@ -22,11 +22,16 @@ const jost = Jost({
 export const metadata: Metadata = {
   title: 'Betz Peinados | Peinadora Profesional en Rosario, Argentina',
   description:
-    'Peinados profesionales para bodas, quinceañeras, eventos sociales, editoriales y modelos en Rosario, Argentina. Más de 8 años de experiencia. Contacto por Instagram.',
+    'Peinados exclusivos para novias, quinceañeras, eventos sociales, graduaciones, editoriales y modelos en Rosario, Argentina. Recogidos, Pulidos, Boho, Clean Look',
   keywords: [
     'peinadora profesional Rosario',
     'peinados para bodas Rosario',
+    'peinados para casamientos Rosario',
     'peinadora bodas Rosario Argentina',
+    'peinados pulidos en Rosario',
+    'peinados boho en Rosario',
+    'peinados clean look en Rosario',
+    'peinados editorial en Rosario',
     'peinados quinceañera Rosario',
     'hair stylist Rosario',
     'peinados para eventos Rosario',
@@ -34,6 +39,7 @@ export const metadata: Metadata = {
     'peinadora a domicilio Rosario',
     'peinados para modelos Rosario',
     'peinados editoriales Rosario',
+    'Betz Peinados',
     'Betz Hairstyles',
   ],
   authors: [{ name: 'Betz Peinados' }],
@@ -43,14 +49,14 @@ export const metadata: Metadata = {
     locale: 'es_AR',
     title: 'Betz Peinados | Peinadora Profesional en Rosario',
     description:
-      'Bodas, quinceañeras, eventos sociales, editoriales y modelos. Peinados de alta gama en Rosario, Argentina.',
+      'Bodas, quinceañeras, graduaciones, eventos sociales, editoriales y modelos. Peinados de alta gama en Rosario, Argentina.',
     siteName: 'Betz Peinados',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Betz Peinados | Peinadora Profesional en Rosario',
     description:
-      'Bodas, quinceañeras, eventos y editoriales. Peinados de alta gama en Rosario.',
+      'Bodas, quinceañeras, graduaciones, eventos sociales y editoriales. Peinados de alta gama en Rosario.',
   },
   robots: {
     index: true,
