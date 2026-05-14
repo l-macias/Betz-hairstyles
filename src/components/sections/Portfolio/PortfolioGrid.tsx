@@ -34,7 +34,7 @@ export default function PortfolioGrid() {
           alt={`${item.title} — ${categoryLabel[item.category] || item.category}`}
           fill
           priority={priority}
-          quality={70}
+          quality={75}
           sizes="
     (max-width: 768px) 100vw,
     (max-width: 1280px) 50vw,
